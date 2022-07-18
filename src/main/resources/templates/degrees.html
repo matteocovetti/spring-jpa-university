@@ -2,37 +2,37 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
 	<th:block th:replace="fragments :: risorse-head"></th:block>
-    <title>Departments</title>
+    <title>Degrees</title>
   </head>
   <body>
-  <nav th:replace="fragments :: navbar('departments')"></nav>
+  <nav th:replace="fragments :: navbar('degrees')"></nav>
     <div class="container">
-    	<h1>Departments</h1>
+    	<h1>Degrees</h1>
     	<!-- da mostrare solo se la lista è piena -->
-    	<table class="table" th:if="${departmentList.size() > 0}">
+    	<table class="table" th:if="${degreesList.size() > 0}">
     		<thead>
     			<tr>
     				<th>Name</th>
+    				<th>Department</th>
     				<th>Address</th>
     				<th>Phone</th>
     				<th>Email</th>
     				<th>Website</th>
-    				<th>Head Of Department</th>
     			</tr>
     		</thead>
     		<tbody>
-    			<tr th:each="d : ${departmentList}">
-    				<td th:text="${d.name}"></td>
-    				<td th:text="${d.address}"></td>
-    				<td th:text="${d.phone}"></td>
-    				<td th:text="${d.email}"></td>
-    				<td th:text="${d.website}"></td>
-    				<td th:text="${d.headOfDepartment}"></td>
+    			<tr th:each="dg : ${degreesList}">
+    				<td th:text="${dg.name}"></td>
+    				<td th:text="${dg.departments.name}"></td>
+    				<td th:text="${dg.level}"></td>
+    				<td th:text="${dg.address}"></td>
+    				<td th:text="${dg.email}"></td>
+    				<td th:text="${dg.website}"></td>
     			</tr>
     		</tbody>
     	</table>
     	<!-- da mostrare solo se la lista è vuota -->
-    	<div class="alert alert-info" role="alert" th:unless="${departmentList.size() > 0}">There are no departments to show</div>
+    	<div class="alert alert-info" role="alert" th:unless="${degreesList.size() > 0}">There are no departments to show</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
